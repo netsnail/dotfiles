@@ -1,0 +1,31 @@
+[default]
+ontop=yes
+autosync=30
+mc=1
+ao=alsa 
+ac=mad,
+vo=xv,x11,vdpau
+stop-xscreensaver=yes
+monitoraspect=1440:900
+zoom=yes
+font="SimSun"
+subcp=cp936
+subfont-autoscale=2
+subfont-text-scale=5
+subfont-osd-scale=5
+overlapsub=1
+framedrop=yes
+# sub-fuzziness=1
+cache=8192
+alang=chs,eng
+slang=chs,chi,eng
+ass=on
+ass-hinting=3
+
+
+# autosync=3
+# mc=30
+# nolirc=yes
+# prefer-ipv4=yes
+# fixed-vo=yes
+# sub-fuzziness=1

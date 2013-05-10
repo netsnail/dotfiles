@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="jar" name="app">
+	<property name="src.dir" value="src" />
+	<property name="config.dir" value="config" />
+	<property name="lib.dir" value="lib" />
+	<property name="build.dir" value="build" />
+	<property name="classes.dir" value="${build.dir}/classes" />
+	
+	<path id="classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${classes.dir}"/>
+	</path>
+	<target name="init" depends="clean">
+		<mkdir dir="${classes.dir}" />
+	</target>
+	<target name="compile" depends="init">
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" encoding="UTF-8" source="1.6" includeantruntime="false">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+	<target name="jar" depends="compile">
+		<jar basedir="${classes.dir}" destfile="${build.dir}/lib/${ant.project.name}.jar"></jar>
+    </target>
+	<target name="zip" depends="jar">
+		<copy todir="${build.dir}/lib">
+			<fileset dir="${lib.dir}"></fileset>
+		</copy>
+		<copy todir="${build.dir}/conf" overwrite="true" verbose="true">
+			<fileset dir="${config.dir}"></fileset>
+		</copy>
+		<delete dir="${classes.dir}"></delete>
+		<zip destfile="${build.dir}/${ant.project.name}.zip">
+			<zipfileset dir="${build.dir}" prefix="${ant.project.name}">
+				<exclude name="${build.dir}/${ant.project.name}.zip"/>
+			</zipfileset>
+		</zip>
+    </target>
+	<target name="clean">
+		<delete dir="${classes.dir}" />
+		<delete dir="${build.dir}/lib"></delete>
+		<delete dir="${build.dir}/conf"></delete>
+		<delete file="${build.dir}/${ant.project.name}.zip" />
+	</target>
+</project>
