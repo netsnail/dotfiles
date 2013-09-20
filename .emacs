@@ -25,7 +25,7 @@
 (global-set-key (kbd "<f6>") 'linum-mode)
 (global-set-key (kbd "<f7>") 'eshell)
 (global-set-key (kbd "<f8>") 'switch-to-buffer)
-(global-set-key (kbd "C-j") 'eval-print-last-sexp)
+(global-set-key (kbd "C-j") 'newline)
 
 
 
