@@ -182,7 +182,4 @@ settings = {
 };
 ignores = (
   { level = "JOINS PARTS QUITS"; },
-  { level = "JOINS PARTS QUITS"; channels = ( "##linux" ); },
-  { level = "JOINS PARTS QUITS"; channels = ( "#ubuntu" ); },
-  { level = "JOINS PARTS QUITS"; channels = ( "#ubuntu-cn" ); },
 );
