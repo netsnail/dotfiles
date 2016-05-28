@@ -1,0 +1,12 @@
+URxvt.font: 9x15
+URxvt.background: #000000
+URxvt.foreground: #FFFFFF
+!!
+URxvt.scrollBar: False
+URxvt.scrollTtyOutput: False
+URxvt.scrollWithBuffer: True
+URxvt.scrollTtyKeypress: True
+URxvt.mouseWheelScrollPage: True
+!!
+URxvt.saveLines: 10000
+URxvt.cursorBlink: True
