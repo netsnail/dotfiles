@@ -1,4 +1,4 @@
-URxvt.font: 9x15
+!!
 URxvt.background: #000000
 URxvt.foreground: #FFFFFF
 !!
@@ -10,3 +10,6 @@ URxvt.mouseWheelScrollPage: True
 !!
 URxvt.saveLines: 10000
 URxvt.cursorBlink: True
+!!
+URxvt.font: xft:WenQuanYi Micro Hei Mono:pixelsize=14:antialias=true:style=Regular
+URxvt.boldFont: xft:WenQuanYi Micro Hei Mono:pixelsize=14:antialias=true:style=Bold
