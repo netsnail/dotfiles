@@ -201,3 +201,5 @@ mode "$mode_system" {
   bindsym Escape mode "default"
 }
 
+bindsym XF86MonBrightnessDown exec xbacklight -20
+bindsym XF86MonBrightnessUp exec xbacklight +20
