@@ -3,7 +3,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(initial-major-mode (quote text-mode))
+ '(package-selected-packages (quote (html5-schema)))
+ '(initial-major-mode (quote org-mode))
  '(initial-scratch-message nil)
  '(inhibit-startup-screen t)
  '(size-indication-mode t)
@@ -23,6 +24,7 @@
  ;; If there is more than one, they won't work right.
 ;;'(default ((t (:family "WenQuanYi Micro Hei Mono")))))
 )
+(setq default-frame-alist '((height . 26)(width . 80)))
 (set 'yes-or-no-p 'y-or-n-p)
 (setq-default make-backup-files nil)
 
