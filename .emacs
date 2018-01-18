@@ -81,6 +81,7 @@
 (defun org-mode-my-init ()
   (define-key org-mode-map (kbd "×") (kbd "*"))
   (define-key org-mode-map (kbd "<f8>") 'org-publish-current-file)
+  (define-key org-mode-map (kbd "<f9>") 'my-org-screenshot)
   )
 (add-hook 'org-mode-hook 'org-mode-my-init)
 (setq org-startup-indented t)
@@ -99,3 +100,12 @@
 		  :with-email t
 		  :html-head "<link rel=\"stylesheet\" href=\"../style.css\" type=\"text/css\" />"
 		  :html-preamble t)))
+(defun my-org-screenshot ()
+  (interactive)
+  (setq filename
+        (concat (make-temp-name
+          (concat "../image/" (file-name-nondirectory (buffer-file-name))
+                  "_" (format-time-string "%Y%m%d_%H%M%S_")) ) ".png"))
+  (call-process "import" nil nil nil filename)
+  (insert (concat "[[" filename "]]"))
+  (org-display-inline-images))
