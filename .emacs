@@ -108,8 +108,11 @@
 \\documentclass[11pt]{article}
 \\usepackage{xeCJK}
 \\setCJKsansfont{Microsoft YaHei}
+\\usepackage{indentfirst}
+\\usepackage[bookmarksnumbered=true]{hyperref}
+\\usepackage{bookmark}
 "
-				("\\section{%s}" . "\\section*{%s}")
+			   ("\\section{%s}" . "\\section*{%s}")
      ("\\subsection{%s}" . "\\subsection*{%s}")
      ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
      ("\\paragraph{%s}" . "\\paragraph*{%s}")
