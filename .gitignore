@@ -1,0 +1,7 @@
+*
+!.gitignore
+!.emacs
+!.minirc.dfl
+!.screenrc
+!.tiger.sh
+!.vimrc
