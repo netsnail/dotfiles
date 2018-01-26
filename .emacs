@@ -80,26 +80,24 @@
 ;; org-mode
 (defun org-mode-my-init ()
   (define-key org-mode-map (kbd "×") (kbd "*"))
-  (define-key org-mode-map (kbd "<f8>") 'org-publish-current-file)
-  (define-key org-mode-map (kbd "<f9>") 'my-org-screenshot)
-  )
+  (define-key org-mode-map (kbd "<f12>") 'org-publish-current-file)
+  (define-key org-mode-map (kbd "<S-f12>") 'org-latex-export-to-pdf)
+  (define-key org-mode-map (kbd "<f9>") 'my-org-screenshot))
 (add-hook 'org-mode-hook 'org-mode-my-init)
 (setq org-startup-indented t)
 (setq org-publish-project-alist
-       '(("notes"
-          :base-directory "~/Documents/org/notes/"
-		  :base-extension "org"
-          :publishing-function org-html-publish-to-html
-          :publishing-directory "~/Documents/org/public_html"
-		  :exclude "style.css" ;; regexp
-		  :headline-levels 3
-		  :recursive t
-		  :section-numbers t
-		  :with-toc t
-		  :with-author t
-		  :with-email t
-		  :html-head "<link rel=\"stylesheet\" href=\"../style.css\" type=\"text/css\" />"
-		  :html-preamble t)))
+	  '(("notes"
+		 :base-directory "~/Documents/org/notes/"
+		 :base-extension "org"
+		 :publishing-function org-html-publish-to-html
+		 :publishing-directory "~/Documents/org/public_html"
+		 :exclude "style.css" ;; regexp
+		 :headline-levels 3
+		 :recursive t
+		 :section-numbers t
+		 :with-toc t
+		 :html-head "<link rel=\"stylesheet\" href=\"../worg.css\" type=\"text/css\" />"
+		 :html-preamble t)))
 (defun my-org-screenshot ()
   (interactive)
   (setq filename
@@ -109,3 +107,23 @@
   (call-process "import" nil nil nil filename)
   (insert (concat "[[" filename "]]"))
   (org-display-inline-images))
+
+;; ox-latex
+(require 'ox-latex)
+(setq org-latex-default-class "cjk-article")
+(add-to-list 'org-latex-classes
+             '("cjk-article"
+			   "
+\\documentclass[11pt]{article}
+\\usepackage{xeCJK}
+\\setCJKsansfont{Microsoft YaHei}
+"
+				("\\section{%s}" . "\\section*{%s}")
+     ("\\subsection{%s}" . "\\subsection*{%s}")
+     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+     ("\\paragraph{%s}" . "\\paragraph*{%s}")
+     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
+	 ))
+(setq org-latex-pdf-process
+	  '("xelatex -interaction nonstopmode -output-directory %o %f"
+		"rm %b.tex"))
