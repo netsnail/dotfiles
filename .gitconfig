@@ -1,3 +1,5 @@
 [user]
 	email = tiger@netsnail.com
 	name = Tiger
+[core]
+	quotepath = false

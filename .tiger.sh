@@ -7,7 +7,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 export MAVEN_HOME=$HOME/java/mvn
 export ANT_HOME=$HOME/java/ant
 export GRADLE_USER_HOME=$HOME/java/gradle
-export ANDROID_HOME=$HOME/java/android-sdk
+export GRADLE_HOME=$GRADLE_USER_HOME
 
 export PATH=\
 $HOME/bin:\
@@ -16,10 +16,9 @@ $HOME/bin:\
 /usr/lib/ccache/bin:\
 /usr/lib/distcc/bin:\
 $JAVA_HOME/bin:\
-$ANT_HOME/bin:\
+$GRADLE_USER_HOME/bin:\
 $MAVEN_HOME/bin:\
-$ANDROID_HOME/tools:\
-$ANDROID_HOME/platform-tools:\
+$ANT_HOME/bin:\
 $PATH:/sbin:/usr/sbin
 
 export LANG="en_US.UTF-8"
